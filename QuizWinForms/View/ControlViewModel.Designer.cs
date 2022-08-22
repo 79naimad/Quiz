@@ -35,8 +35,9 @@
             // 
             // btnPrievQuestion
             // 
+            this.btnPrievQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrievQuestion.AutoSize = true;
-            this.btnPrievQuestion.Location = new System.Drawing.Point(6, 60);
+            this.btnPrievQuestion.Location = new System.Drawing.Point(3, 60);
             this.btnPrievQuestion.MinimumSize = new System.Drawing.Size(50, 15);
             this.btnPrievQuestion.Name = "btnPrievQuestion";
             this.btnPrievQuestion.Size = new System.Drawing.Size(75, 25);
@@ -46,8 +47,8 @@
             // 
             // btnNextQuestion
             // 
-            this.btnNextQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNextQuestion.Location = new System.Drawing.Point(514, 60);
+            this.btnNextQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNextQuestion.Location = new System.Drawing.Point(514, 62);
             this.btnNextQuestion.MinimumSize = new System.Drawing.Size(50, 15);
             this.btnNextQuestion.Name = "btnNextQuestion";
             this.btnNextQuestion.Size = new System.Drawing.Size(75, 23);
@@ -57,9 +58,8 @@
             // 
             // btnFinishTest
             // 
-            this.btnFinishTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFinishTest.Location = new System.Drawing.Point(245, 60);
+            this.btnFinishTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFinishTest.Location = new System.Drawing.Point(254, 62);
             this.btnFinishTest.MinimumSize = new System.Drawing.Size(50, 15);
             this.btnFinishTest.Name = "btnFinishTest";
             this.btnFinishTest.Size = new System.Drawing.Size(75, 23);

@@ -34,6 +34,7 @@
             // 
             // lblQuestion
             // 
+            this.lblQuestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblQuestion.AutoSize = true;
             this.lblQuestion.Location = new System.Drawing.Point(47, 62);
             this.lblQuestion.Name = "lblQuestion";
@@ -43,6 +44,7 @@
             // 
             // lblQuestionId
             // 
+            this.lblQuestionId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblQuestionId.AutoSize = true;
             this.lblQuestionId.Location = new System.Drawing.Point(3, 62);
             this.lblQuestionId.Name = "lblQuestionId";

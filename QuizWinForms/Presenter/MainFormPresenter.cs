@@ -20,14 +20,18 @@ namespace QuizBSWinForms.Presenter
         private readonly AnswersHandler answerHandler;
         private int currentQuestionNumber;
 
+
         #region Constants
+
         private readonly int startIndexOfList;
         private readonly int endIndexOfList;
+        private readonly string finalMessage = "Your result: ";
         #endregion
 
         #endregion
 
         #region Constructors
+
         public MainFormPresenter(IMainForm mainForm, 
             IQuestionRepository questionsRepository,
             AnswersHandler answerHandler)      
@@ -48,26 +52,31 @@ namespace QuizBSWinForms.Presenter
             controlViewModel.SetButtonPrievText("<<");
             checkPossibilitiesToClickForAllButtons(currentQuestionNumber);
 
-            controlViewModel.NextQuestion = delegate { NextQuestion(); };
-            controlViewModel.PrievQuestion = delegate { PrievQuestion(); };
+            controlViewModel.NextQuestion = delegate { nextQuestion(); };
+            controlViewModel.PrievQuestion = delegate { prievQuestion(); };
             controlViewModel.FinishTest = delegate { finishTest(questionsRepository); };
 
 
             loadQuestion(currentQuestionNumber);
         }
 
+        #endregion
+
+        #region Methods
+
         private void checkPossibilitiesToClickForAllButtons(int currentQuestionNumber)
         {
             controlViewModel.SetButtonFinishEnable(ButtonManager.CheckPossiblitiesToClickTheButton(currentQuestionNumber, 
                                                                                                 endIndexOfList, 
                                                                                                 ButtonManager.ButtonType.singlePossibilites));
+
             controlViewModel.SetButtonNextEnable(ButtonManager.CheckPossiblitiesToClickTheButton(currentQuestionNumber, 
                                                                                                 endIndexOfList, 
                                                                                                 ButtonManager.ButtonType.multiplePossibilites));
+
             controlViewModel.SetButtonPrievEnable(ButtonManager.CheckPossiblitiesToClickTheButton(currentQuestionNumber, 
                                                                                                 0, 
                                                                                                 ButtonManager.ButtonType.multiplePossibilites));
-
         }
 
         private void saveQuestions(int i)
@@ -78,7 +87,8 @@ namespace QuizBSWinForms.Presenter
             questionModel[i].BoolAnswerC = answerViewModel.BoolAnswerC;
             questionModel[i].BoolAnswerD = answerViewModel.BoolAnswerD;
         }
-        public void NextQuestion()
+
+        private void nextQuestion()
         {
             if (endIndexOfList > currentQuestionNumber)
             {
@@ -88,7 +98,8 @@ namespace QuizBSWinForms.Presenter
             }
 
         }
-        public void PrievQuestion()
+
+        private void prievQuestion()
         {
             if (startIndexOfList < currentQuestionNumber)
             {
@@ -97,6 +108,7 @@ namespace QuizBSWinForms.Presenter
                 checkPossibilitiesToClickForAllButtons(currentQuestionNumber);
             }
         }
+
         private void loadQuestion(int i)
         {
             List<QuestionModel> questionModel = (List<QuestionModel>)questionsRepository.GetQuestions();
@@ -114,12 +126,30 @@ namespace QuizBSWinForms.Presenter
             answerViewModel.BoolAnswerC = questionModel[i].BoolAnswerC;
             answerViewModel.BoolAnswerD = questionModel[i].BoolAnswerD;
         }
+
         private void finishTest(IQuestionRepository repository)
         {
             saveQuestions(currentQuestionNumber);
             answerHandler.CheckAnswers(repository);
-            string result = "Your result is : " + answerHandler.ResultOfTest.ToString();
-            MessageBox.Show(result);
+
+            finishWindow(finalMessage);
+
+            //18.08 - MA LY PORZ ADEJ W PREZENTERZE + MAŁE ZMIANY ROZMAIRÓW W VIEW + FINISHTEST METOD PRZEROBIONA TROCHĘ 
+            //22.08 - dokończenie metody kończącej aplikację
+        }
+
+        private void finishWindow(string msg)
+        {
+            var dialogWindow = new FinishMessageBox(msg, MessageBoxButtons.RetryCancel);
+            
+            if(dialogWindow.CheckingIfRepeatTest(answerHandler.ResultOfTest))
+            {
+                //repeat test
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         #endregion
