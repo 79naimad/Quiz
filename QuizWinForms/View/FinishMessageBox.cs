@@ -20,7 +20,7 @@
         private DialogResult showDialogWindow(int result)
         {
             string finallyMessage = this.message + result.ToString();
-            return MessageBox.Show(message, "Result", button);
+            return MessageBox.Show(finallyMessage, "", button);
         }
 
 

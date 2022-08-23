@@ -130,21 +130,31 @@ namespace QuizBSWinForms.Presenter
         private void finishTest(IQuestionRepository repository)
         {
             saveQuestions(currentQuestionNumber);
+
             answerHandler.CheckAnswers(repository);
 
             finishWindow(finalMessage);
-
-            //18.08 - MA LY PORZ ADEJ W PREZENTERZE + MAŁE ZMIANY ROZMAIRÓW W VIEW + FINISHTEST METOD PRZEROBIONA TROCHĘ 
-            //22.08 - dokończenie metody kończącej aplikację
         }
 
         private void finishWindow(string msg)
         {
             var dialogWindow = new FinishMessageBox(msg, MessageBoxButtons.RetryCancel);
-            
-            if(dialogWindow.CheckingIfRepeatTest(answerHandler.ResultOfTest))
+            repeatTest(dialogWindow.CheckingIfRepeatTest(answerHandler.ResultOfTest));
+
+        }
+
+        private void repeatTest(bool result)
+        {
+
+            if (result)
             {
-                //repeat test
+                questionsRepository.ResetAnswers();
+
+                currentQuestionNumber = 0;
+
+                loadQuestion(currentQuestionNumber);
+
+                checkPossibilitiesToClickForAllButtons(currentQuestionNumber);
             }
             else
             {

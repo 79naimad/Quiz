@@ -9,5 +9,6 @@ namespace QuizBSWinForms.Model
     public interface IQuestionRepository
     {
         IEnumerable<QuestionModel> GetQuestions();
+        void ResetAnswers();
     }
 }

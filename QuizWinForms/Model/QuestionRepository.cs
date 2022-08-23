@@ -59,11 +59,27 @@ namespace QuizBSWinForms.Model
                 }
             };
         }
+        #endregion
+
+        #region Methods
 
         public IEnumerable<QuestionModel> GetQuestions()
         {
             return quesitions;
         }
+
+        public void ResetAnswers()
+        {
+            List<QuestionModel> quesitions = this.quesitions as List<QuestionModel>;
+            for (int i = 0; i < quesitions.Count(); i++)
+            {
+                quesitions[i].BoolAnswerA = false;
+                quesitions[i].BoolAnswerB = false;
+                quesitions[i].BoolAnswerC = false;
+                quesitions[i].BoolAnswerD = false;
+            }
+        }
+
         #endregion
     }
 }
