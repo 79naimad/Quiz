@@ -22,7 +22,6 @@ namespace QuizBSWinForms.View
 
         #endregion
 
-
         #region Properties
         public string Questtion 
         { 

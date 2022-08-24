@@ -26,6 +26,8 @@ namespace QuizBSWinForms.Presenter
         private readonly int startIndexOfList;
         private readonly int endIndexOfList;
         private readonly string finalMessage = "Your result: ";
+        private readonly string dialogFinishWndTitle = "Result";
+
         #endregion
 
         #endregion
@@ -133,12 +135,12 @@ namespace QuizBSWinForms.Presenter
 
             answerHandler.CheckAnswers(repository);
 
-            finishWindow(finalMessage);
+            finishWindow(dialogFinishWndTitle, finalMessage);
         }
 
-        private void finishWindow(string msg)
+        private void finishWindow(string ttl, string msg)
         {
-            var dialogWindow = new FinishMessageBox(msg, MessageBoxButtons.RetryCancel);
+            var dialogWindow = new FinishMessageBox(ttl, msg, MessageBoxButtons.RetryCancel);
             repeatTest(dialogWindow.CheckingIfRepeatTest(answerHandler.ResultOfTest));
 
         }

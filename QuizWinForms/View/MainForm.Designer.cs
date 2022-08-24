@@ -38,7 +38,7 @@
             // 
             // pnlTop
             // 
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
             this.pnlTop.Size = new System.Drawing.Size(784, 100);
@@ -46,18 +46,17 @@
             // 
             // pnlBot
             // 
-            this.pnlBot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBot.Location = new System.Drawing.Point(0, 437);
+            this.pnlBot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlBot.Location = new System.Drawing.Point(0, 350);
             this.pnlBot.Name = "pnlBot";
-            this.pnlBot.Size = new System.Drawing.Size(784, 124);
+            this.pnlBot.Size = new System.Drawing.Size(784, 211);
             this.pnlBot.TabIndex = 1;
             // 
             // pnlMid
             // 
-            this.pnlMid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMid.Location = new System.Drawing.Point(0, 100);
+            this.pnlMid.Location = new System.Drawing.Point(0, 106);
             this.pnlMid.Name = "pnlMid";
-            this.pnlMid.Size = new System.Drawing.Size(784, 337);
+            this.pnlMid.Size = new System.Drawing.Size(784, 238);
             this.pnlMid.TabIndex = 2;
             // 
             // MainForm

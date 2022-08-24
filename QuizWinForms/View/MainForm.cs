@@ -17,6 +17,7 @@ namespace QuizBSWinForms.View
         private readonly QuestionViewModel questionViewModel;
         private readonly AnswerViewModel answerViewModel;
         #endregion
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,11 +25,11 @@ namespace QuizBSWinForms.View
             answerViewModel = new AnswerViewModel() { Dock = DockStyle.Bottom };
             questionViewModel = new QuestionViewModel() { Dock = DockStyle.Fill};
 
-
             ShowAnswerViewModel();
             ShowControlViewModel();
             ShowQuestionViewModel();
         }
+
         #region Properties
         public IControlViewModel ControlViewModel
         {

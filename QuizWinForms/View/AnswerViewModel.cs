@@ -74,10 +74,6 @@ namespace QuizBSWinForms.View
         }
         #endregion
 
-        private void cBoxA_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
     public interface IAnswerViewModel
     {
