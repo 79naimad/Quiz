@@ -1,6 +1,6 @@
 ﻿namespace QuizBSWinForms.View
 {
-    internal class FinishMessageBox
+    public class FinishMessageBox
     {
 
         #region Constructors
